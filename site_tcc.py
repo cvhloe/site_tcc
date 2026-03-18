@@ -135,7 +135,7 @@ except FileNotFoundError:
 pagina_home = html.Div([
     html.H1("Fundamentos: Ações de Grupos e Isometrias", className="text-primary"),
     html.Hr(),
-    dcc.Markdown(texto_home, mathjax=True, style={'fontSize': '18px', 'lineHeight': '1.8'})
+    dcc.Markdown(texto_home, mathjax=True,dangerously_allow_html=True,  style={'fontSize': '18px', 'lineHeight': '1.8'})
 ])
 
 

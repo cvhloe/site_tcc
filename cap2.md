@@ -36,14 +36,18 @@ Cada $3-$ciclos é uma permutação par, dado um elemento de $A_n$ usamos o coro
 ## O Grupo Diedral $D_n$
 Também temos o grupo diedral $D_n$, grupo não abeliano das simetrias de um polígono regular de $n$ lados. Por exemplo, se $n=3$ temos um triângulo, que tem um total de seis rotações simétricas, sendo três rotações ($r$) e três reflexões ($s$). Temos então: $D_3 = \{e,r,r^2,s,rs,r^2s\}$.
 
-| | $e$ | $r$ | $r^2$ | $s$ | $rs$ | $r^2s$ |
-|---|---|---|---|---|---|---|
-| **$e$** | $e$ | $r$ | $r^2$ | $s$ | $rs$ | $r^2s$ |
-| **$r$** | $r$ | $r^2$ | $e$ | $rs$ | $r^2s$ | $s$ |
-| **$r^2$** | $r^2$ | $e$ | $r$ | $r^2s$ | $s$ | $rs$ |
-| **$s$** | $s$ | $r^2s$ | $rs$ | $e$ | $r^2$ | $r$ |
-| **$rs$** | $rs$ | $s$ | $r^2s$ | $r$ | $e$ | $r^2$ |
-| **$r^2s$** | $r^2s$ | $rs$ | $s$ | $r^2$ | $r$ | $e$ |
+
+<div class="alvo-cayley"></div>
+
+|        | $e$    | $r$    | $r^2$  | $s$    | $rs$   | $r^2s$ |
+|--------|--------|--------|--------|--------|--------|--------|
+| $e$    | $e$    | $r$    | $r^2$  | $s$    | $rs$   | $r^2s$ |
+| $r$    | $r$    | $r^2$  | $e$    | $rs$   | $r^2s$ | $s$    |
+| $r^2$  | $r^2$  | $e$    | $r$    | $r^2s$ | $s$    | $rs$   |
+| $s$    | $s$    | $r^2s$ | $rs$   | $e$    | $r^2$  | $r$    |
+| $rs$   | $rs$   | $s$    | $r^2s$ | $r$    | $e$    | $r^2$  |
+| $r^2s$ | $r^2s$ | $rs$   | $s$    | $r^2$  | $r$    | $e$    |
+
 
 *Tabela: Tabela do grupo $D_3$*
 
@@ -73,15 +77,15 @@ Seja $v \in \mathbb{R}^3$ um autovetor associado ao autovalor $1$, então $Av = 
 ## Grupos de Simetria dos Sólidos Platônicos
 
 Existem exatamente cinco sólidos platônicos no espaço euclidiano tridimensional. Seus grupos de simetria atuam de forma transitiva sobre vértices, arestas e faces.
+<div class="alvo-platonico"></div>
 
-| **Sólido Platônico** | **Vértices (V)** | **Arestas (A)** | **Faces (F)** | **Forma da Face** |
-|---|---|---|---|---|
-| Tetraedro | 4 | 6 | 4 | Triângulo equilátero |
-| Cubo | 8 | 12 | 6 | Quadrado |
-| Octaedro | 6 | 12 | 8 | Triângulo equilátero |
-| Dodecaedro | 20 | 30 | 12 | Pentágono regular |
-| Icosaedro | 12 | 30 | 20 | Triângulo equilátero |
-
+| Sólido Platônico | Vértices (V) | Arestas (A) | Faces (F) |     Forma da Face    |
+|------------------|:------------:|:-----------:|:---------:|:--------------------:|
+| Tetraedro        |       4      |      6      |     4     | Triângulo equilátero |
+| Cubo             |       8      |      12     |     6     |       Quadrado       |
+| Octaedro         |       6      |      12     |     8     | Triângulo equilátero |
+| Dodecaedro       |      20      |      30     |     12    |   Pentágono regular  |
+| Icosaedro        |      12      |      30     |     20    | Triângulo equilátero |
 *Tabela: Características dos Sólidos Platônicos*
 
 **Definição (Sólidos Duais):**

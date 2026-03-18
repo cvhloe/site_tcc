@@ -1,0 +1,61 @@
+/* ========================================================
+   0. LIMPEZA GERAL (Mata as grades do Bootstrap)
+   ======================================================== */
+.texto-com-tabela table {
+    border-collapse: collapse !important;
+    background-color: transparent !important;
+    color: black !important;
+}
+.texto-com-tabela th, .texto-com-tabela td {
+    border: none !important; 
+}
+
+/* ========================================================
+   1. SÓLIDOS PLATÔNICOS (Estilo Booktabs)
+   ======================================================== */
+.alvo-platonico + table {
+    width: 85% !important;
+    margin: 40px auto !important;
+}
+.alvo-platonico + table th, 
+.alvo-platonico + table td {
+    padding: 12px 15px !important;
+    text-align: center !important;
+}
+.alvo-platonico + table th:first-child, 
+.alvo-platonico + table td:first-child {
+    text-align: left !important; /* Alinha os nomes à esquerda */
+}
+/* Linhas do cabeçalho */
+.alvo-platonico + table thead th {
+    border-top: 2px solid black !important;
+    border-bottom: 1px solid black !important;
+}
+/* Linha do final da tabela */
+.alvo-platonico + table tbody tr:last-child td {
+    border-bottom: 2px solid black !important;
+}
+
+/* ========================================================
+   2. TABELAS DE CAYLEY (A Cruz)
+   ======================================================== */
+.alvo-cayley + table {
+    margin: 20px auto !important;
+    width: auto !important;
+}
+.alvo-cayley + table th, 
+.alvo-cayley + table td {
+    padding: 8px 18px !important;
+    text-align: center !important;
+    font-size: 18px !important;
+}
+/* A linha horizontal */
+.alvo-cayley + table thead th {
+    border-bottom: 1.5px solid black !important;
+}
+/* A linha vertical */
+.alvo-cayley + table th:first-child, 
+.alvo-cayley + table td:first-child {
+    border-right: 1.5px solid black !important;
+    font-weight: bold !important; /* Primeira coluna em negrito */
+}
