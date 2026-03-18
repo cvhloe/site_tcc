@@ -133,7 +133,7 @@ except FileNotFoundError:
         texto_home = "Texto do Capítulo 2 será lido aqui (Crie o arquivo cap2.md)."
 
 pagina_home = html.Div([
-    html.H1("Fundamentos: Ações de Grupos e Isometrias", className="text-primary"),
+    html.H1("Classes de grupos e exemplos notáveis", className="text-primary"),
     html.Hr(),
     dcc.Markdown(texto_home, mathjax=True,dangerously_allow_html=True,  style={'fontSize': '18px', 'lineHeight': '1.8'})
 ])
