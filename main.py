@@ -109,10 +109,10 @@ sidebar = html.Div([
     html.Hr(style={'borderColor': 'white'}),
     html.P("Exploração interativa de Grupos e Sólidos Platônicos", className="lead", style={'fontSize': '14px'}),
     dbc.Nav([
-        dbc.NavLink("1. Fundamentos e Teoremas", href="/", active="exact", style={'color': '#18bc9c'}),
-        dbc.NavLink("2. O Tetraedro (A4)", href="/tetraedro", active="exact", style={'color': '#18bc9c'}),
-        dbc.NavLink("3. Cubo e Octaedro (S4)", href="/cubo", active="exact", style={'color': '#18bc9c'}),
-        dbc.NavLink("4. Dodecaedro e Icosaedro", href="/dodecaedro", active="exact", style={'color': '#18bc9c'}),
+        dbc.NavLink("Fundamentos e Teoremas", href="/", active="exact", style={'color': '#e0e2e2'}),
+        dbc.NavLink("O Tetraedro (A4)", href="/tetraedro", active="exact", style={'color': '#e0e2e2'}),
+        dbc.NavLink("Cubo e Octaedro (S4)", href="/cubo", active="exact", style={'color': '#e0e2e2'}),
+       # dbc.NavLink("Dodecaedro e Icosaedro", href="/dodecaedro", active="exact", style={'color': '#e0e2e2'}),
     ], vertical=True, pills=True),
 ], style=SIDEBAR_STYLE)
 
