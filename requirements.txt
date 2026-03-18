@@ -1,5 +1,6 @@
 dash
-plotly
+dash-bootstrap-components
+pandas
 numpy
+plotly
 gunicorn
-dash_bootstrap_components

@@ -305,5 +305,3 @@ def update_cubo(p1_name, p2_name, angulo_graus, btn_reset, memory):
 if __name__ == "__main__":
     app.run(debug=True, port=8060)
     
-app = Dash(__name__)
-server = app.server  
