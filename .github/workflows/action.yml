@@ -5,16 +5,14 @@ on:
     branches: [ "main" ]          # deploy only on push to main
   pull_request:
     branches: [ "main" ]          # build on PRs to main (no deploy)
-  workflow_dispatch:               # manual run
+  workflow_dispatch:
 
-# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 env:
-  UV_PYTHON: "3.12"                 # Python version for uv
-  # https://docs.flet.dev/reference/environment-variables
+  UV_PYTHON: "3.12"
   FLET_CLI_NO_RICH_OUTPUT: "1"
 
 jobs:
@@ -29,20 +27,18 @@ jobs:
       - name: Setup uv
         uses: astral-sh/setup-uv@v6
 
-      # If your project has a pyproject.toml with flet as a dependency,
-      # uv will handle it automatically in 'uv run'. If not, uncomment the next step:
-      # - name: Install flet (no pyproject)
-      #   run: uv pip install --system flet flet-cli
+      - name: Install flet / flet-cli
+        run: uv pip install --system flet flet-cli
 
       - name: Build app
         shell: bash
         run: |
           set -euo pipefail
-          REPO_NAME="REPO_NAME_HERE"
-          uv run flet build web \
+          REPO_NAME="site_tcc"
+          flet build web \
             --yes \
             --verbose \
-            --base-url "/${REPO_NAME}" \
+            --base-url "/${site_tcc}" \
             --route-url-strategy hash
 
       - name: Upload Pages Artifact
@@ -54,7 +50,7 @@ jobs:
 
   deploy:
     name: Deploy to GitHub Pages
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'  # deploy only on push to main
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
 
