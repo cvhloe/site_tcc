@@ -107,7 +107,7 @@ CONTENT_STYLE = {
 sidebar = html.Div([
     html.H4("Simetrias dos Sólidos de Platão", className="display-6", style={'color': 'white'}),
     html.Hr(style={'borderColor': 'white'}),
-    html.P("Exploração interativa de Grupos e Sólidos Platônicos", className="lead", style={'fontSize': '14px'}),
+    # html.P("Grupos e Sólidos Platônicos", className="lead", style={'fontSize': '14px'}),
     dbc.Nav([
         dbc.NavLink("Fundamentos e Teoremas", href="/", active="exact", style={'color': '#e0e2e2'}),
         dbc.NavLink("O Tetraedro (A4)", href="/tetraedro", active="exact", style={'color': '#e0e2e2'}),
