@@ -1,10 +1,10 @@
-name: Web Build + Deploy to GitHub Pages
+name: Build & Deploy Flet Web to GitHub Pages
 
 on:
   push:
-    branches: [ "main" ]          # deploy only on push to main
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]          # build on PRs to main (no deploy)
+    branches: ["main"]
   workflow_dispatch:
 
 concurrency:
@@ -27,18 +27,14 @@ jobs:
       - name: Setup uv
         uses: astral-sh/setup-uv@v6
 
-      - name: Install flet / flet-cli
-        run: uv pip install --system flet flet-cli
-
-      - name: Build app
+      - name: Build Flet web app (uvx)
         shell: bash
         run: |
           set -euo pipefail
-          REPO_NAME="site_tcc"
-          flet build web \
+          uvx --python "${UV_PYTHON}" flet build web \
             --yes \
             --verbose \
-            --base-url "/${site_tcc}" \
+            --base-url "/site_tcc" \
             --route-url-strategy hash
 
       - name: Upload Pages Artifact
@@ -71,3 +67,4 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           artifact_name: web-build-artifact
+``
