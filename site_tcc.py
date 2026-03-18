@@ -1,5 +1,5 @@
 import dash
-from dash import dcc, html, Input, Output, State, ctx, no_update
+from dash import Dash, dcc, html, Input, Output, State, ctx, no_update
 import dash_bootstrap_components as dbc
 import plotly.graph_objects as go
 import numpy as np
@@ -304,3 +304,6 @@ def update_cubo(p1_name, p2_name, angulo_graus, btn_reset, memory):
 
 if __name__ == "__main__":
     app.run(debug=True, port=8060)
+    
+app = Dash(__name__)
+server = app.server  
