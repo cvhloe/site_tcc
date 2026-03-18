@@ -1,5 +1,3 @@
-# Classes de grupos e exemplos notáveis
-
 ## O Grupo Simétrico $S_n$
 O grupo $S_n$ é um grupo de permutações de elementos. Mais precisamente, seja $A$ um conjunto finito $\{1, 2, \dots, n\}$. Se tomarmos todas as funções bijetoras de $A$ em $A$, o que elas fazem é permutar os elementos. A composição de uma função bijetora é ainda uma função bijetora. O número de bijeção de $n$ elementos é $n!$.
 
