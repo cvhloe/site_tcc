@@ -12,7 +12,7 @@ def rotate_points(pts, start, end, angle):
         return pts
     axis = (end - start) / np.linalg.norm(end - start)
     K = np.array([[0, -axis[2], axis[1]], [axis[2], 0, -axis[0]], [-axis[1], axis[0], 0]])
-    R_mat = np.eye(3) + np.sin(angle) * K + (1 - np.cos(angle)) * (K @ K)
+    R_mat = np.eye(3) + np.sin(-angle) * K + (1 - np.cos(-angle)) * (K @ K)
     return (pts - start) @ R_mat.T + start
 
 # ==========================================
