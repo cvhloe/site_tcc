@@ -15,6 +15,13 @@ def rotate_points(pts, start, end, angle):
     R_mat = np.eye(3) + np.sin(-angle) * K + (1 - np.cos(-angle)) * (K @ K)
     return (pts - start) @ R_mat.T + start
 
+def agrupar_arestas(vertices, edges):
+    x_edges, y_edges, z_edges = [], [], []
+    for i1, i2 in edges:
+        x_edges.extend([vertices[i1, 0], vertices[i2, 0], None])
+        y_edges.extend([vertices[i1, 1], vertices[i2, 1], None])
+        z_edges.extend([vertices[i1, 2], vertices[i2, 2], None])
+    return x_edges, y_edges, z_edges
 # ==========================================
 # 1. GEOMETRIA BASE DO TETRAEDRO (_tet)
 # ==========================================
@@ -236,8 +243,19 @@ def update_tetraedro(p1_name, p2_name, angulo_graus, btn_reset, memory):
     fig = go.Figure()
 
     fig.add_trace(go.Mesh3d(x=vertices_init_tet[:,0], y=vertices_init_tet[:,1], z=vertices_init_tet[:,2], **faces_idx, color='lightgray', opacity=0.15, showlegend=False))
-    for i1, i2 in solid_edges: fig.add_trace(go.Scatter3d(x=[vertices_init_tet[i1,0], vertices_init_tet[i2,0]], y=[vertices_init_tet[i1,1], vertices_init_tet[i2,1]], z=[vertices_init_tet[i1,2], vertices_init_tet[i2,2]], mode='lines', line=dict(color='gray', width=2), showlegend=False))
-    for i1, i2 in dotted_edges: fig.add_trace(go.Scatter3d(x=[vertices_init_tet[i1,0], vertices_init_tet[i2,0]], y=[vertices_init_tet[i1,1], vertices_init_tet[i2,1]], z=[vertices_init_tet[i1,2], vertices_init_tet[i2,2]], mode='lines', line=dict(color='gray', width=2, dash='dot'), showlegend=False))
+    # CÓDIGO NOVO (Faça isso tanto para o tetraedro original quanto para o móvel)
+    x_solid, y_solid, z_solid = agrupar_arestas(pts_movel, solid_edges)
+    fig.add_trace(go.Scatter3d(
+        x=x_solid, y=y_solid, z=z_solid, 
+        mode='lines', line=dict(color='black', width=3), showlegend=False
+    ))
+
+    x_dotted, y_dotted, z_dotted = agrupar_arestas(pts_movel, dotted_edges)
+    fig.add_trace(go.Scatter3d(
+        x=x_dotted, y=y_dotted, z=z_dotted, 
+        mode='lines', line=dict(color='black', width=3, dash='dot'), showlegend=False
+    ))
+    
     fig.add_trace(go.Scatter3d(x=vertices_init_tet[:,0]+0.03, y=vertices_init_tet[:,1], z=vertices_init_tet[:,2], mode='text', text=labels_fixo_tet, textfont=dict(color='gray', size=12), marker=dict(size=4, color='gray'), showlegend=False))
 
     fig.add_trace(go.Mesh3d(x=pts_movel[:,0], y=pts_movel[:,1], z=pts_movel[:,2], **faces_idx, color='firebrick', opacity=0.4, showlegend=False))
@@ -302,5 +320,5 @@ def update_cubo(p1_name, p2_name, angulo_graus, btn_reset, memory):
     fig.update_layout(uirevision='cub', scene=dict(xaxis=dict(visible=False), yaxis=dict(visible=False), zaxis=dict(visible=False), aspectmode='data', camera_eye=dict(x=-2.8, y=-1.8, z=1.2)), margin=dict(l=0, r=0, b=0, t=0), plot_bgcolor='white', paper_bgcolor='white')
     return fig, new_memory, new_slider_val
 
-# if __name__ == "__main__":
-#     app.run(debug=True, port=8060)
+if __name__ == "__main__":
+    app.run(debug=True, port=8061)
