@@ -320,5 +320,5 @@ def update_cubo(p1_name, p2_name, angulo_graus, btn_reset, memory):
     fig.update_layout(uirevision='cub', scene=dict(xaxis=dict(visible=False), yaxis=dict(visible=False), zaxis=dict(visible=False), aspectmode='data', camera_eye=dict(x=-2.8, y=-1.8, z=1.2)), margin=dict(l=0, r=0, b=0, t=0), plot_bgcolor='white', paper_bgcolor='white')
     return fig, new_memory, new_slider_val
 
-if __name__ == "__main__":
-    app.run(debug=True, port=8061)
+# if __name__ == "__main__":
+  #  app.run(debug=True, port=8061)
